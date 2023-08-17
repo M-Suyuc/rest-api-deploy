@@ -1,0 +1,33 @@
+
+@api = http://localhost:8080/movies
+
+## Recuperar todas las peliculas 
+GET {{api}}
+
+### Recuperar una pelicua por la id 
+GET {{api}}/5ad1a235-0d9c-410a-b32b-220d91689a08
+
+### Recuperar todas las peliculas por un genéro
+GET {{api}}?genre=ACTION
+
+### Crear una pelicula con POST
+POST  {{api}}
+content-type: application/json
+
+{
+    "sql": "SELEC * FROM users",
+    "title": "The GoodFatherR",
+    "year": 1975,
+    "director":"Francis FordD",
+    "duration": 190,
+    "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
+    "genre":["Crime","Drame"]
+}
+
+### Actualicar una pelicula 
+PATCH {{api}}/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "year": 1994
+}
