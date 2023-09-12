@@ -1,6 +1,4 @@
 # rest-api-deploy
-url : https://rest-api-deploy-n3p4-dev.fl0.io/<br/>
-
 GET
 - url/movies -> Recupera todas las peliculas
 - url/id     -> Recupra una pelicula por su id
