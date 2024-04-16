@@ -3,7 +3,7 @@ const z = require('zod')
 const movieSchema = z.object({
   title: z.string({
     invalid_type_error: 'Movie title  must  be a string',
-    required_error: 'Movie title es required',
+    required_error: 'Movie title es required'
   }),
   year: z.number().int().min(1900).max(2024),
   director: z.string(),
@@ -20,25 +20,20 @@ const movieSchema = z.object({
       'Fantasy',
       'Horror',
       'Thriller',
-      'Sci-Fi',
+      'Sci-Fi'
     ]),
     {
       required_error: 'Movie genre is required',
-      invalid_type_error: 'Movie  genre  must be an array of enum Genre',
+      invalid_type_error: 'Movie  genre  must be an array of enum Genre'
     }
-  ),
+  )
 })
 
-function validateMovie(object) {
+export function validateMovie(object) {
   return movieSchema.safeParse(object)
 }
 
-function validateParcialMovie(object) {
+export function validateParcialMovie(object) {
   return movieSchema.partial().safeParse(object)
   // partial -> es para hacer las todas las opcione sean opcionales -> osea que si no estan esta BIEN y si estan pues las VALIDAS
-}
-
-module.exports = {
-  validateMovie,
-  validateParcialMovie,
 }
